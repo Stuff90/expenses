@@ -1,16 +1,16 @@
 <div class="addEmployeeForm">
   <form [formGroup]="addEmployeeForm" novalidate (ngSubmit)="onSubmit()">
     <div>
-      <md-form-field class="example-full-width">
+      <md-form-field>
         <input formControlName="firstName" mdInput placeholder="First name" required type="text">
       </md-form-field>
 
-      <md-form-field class="example-full-width">
+      <md-form-field>
         <input formControlName="lastName" mdInput placeholder="Last name" required type="text">
       </md-form-field>
     </div>
 
-    <md-form-field class="example-full-width">
+    <md-form-field>
       <input formControlName="emailAddress" mdInput placeholder="Email" required type="email">
     </md-form-field>
 

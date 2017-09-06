@@ -1,0 +1,27 @@
+.uploadInput__dropZone {
+  padding: 10px;
+  background: #eee;
+  border: solid 1px #cacaca;
+  border-radius: 3px;
+  transition: all 200ms ease;
+}
+
+.uploadInput__dropZone--active {
+  background: #dadada;
+  border: solid 1px #acacac;
+}
+
+.uploadInput__button {
+  margin-right: 10px;
+
+  input {
+    display: inline-block;
+    position: absolute;
+    background: tan;
+    left: 0;
+    color: transparent;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+  }
+}

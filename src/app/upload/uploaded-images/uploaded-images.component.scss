@@ -1,0 +1,16 @@
+.uploadedImages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.uploadedImages__cardContent {
+  display: flex;
+  justify-content: center;
+}
+
+.uploadedImages__imageCard {
+  flex: 0 1 43%;
+  margin-bottom: 10px;
+}

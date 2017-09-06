@@ -1,0 +1,16 @@
+<div class="uploadInput">
+
+  <div ng2FileDrop
+    [ngClass]="{'uploadInput__dropZone--active': hasFileOver | async}"
+    (fileOver)="hasFileOver.next($event)"
+    [uploader]="uploadService.uploader"
+    class="uploadInput__dropZone"
+  >
+    <button md-raised-button class="uploadInput__button" type="button">
+      Browse files
+      <input type="file" ng2FileSelect [uploader]="uploadService.uploader" />
+    </button>
+
+      Or drop them in the zone
+  </div>
+</div>

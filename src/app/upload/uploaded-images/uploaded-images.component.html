@@ -1,0 +1,16 @@
+<div class="uploadedImages">
+  <md-card
+    *ngFor="let image of images | async"
+    class="uploadedImages__imageCard"
+  >
+    <img md-card-image [src]="image.src" (load)="image.isReady = true">
+    <md-card-content  class="uploadedImages__cardContent">
+      <md-spinner *ngIf="!image.isReady"></md-spinner>
+    </md-card-content>
+    <md-card-title class="uploadedImages__cardTitle">{{image.file.name}}</md-card-title>
+    <md-card-actions>
+      <button md-button>LIKE</button>
+      <button md-button>SHARE</button>
+    </md-card-actions>
+  </md-card>
+</div>

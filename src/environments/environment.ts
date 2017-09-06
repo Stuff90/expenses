@@ -10,7 +10,7 @@ export const environment = {
     authDomain: 'expenses-fcd99.firebaseapp.com',
     databaseURL: 'https://expenses-fcd99.firebaseio.com',
     projectId: 'expenses-fcd99',
-    storageBucket: '',
+    storageBucket: 'expenses-fcd99.appspot.com',
     messagingSenderId: '796647834823'
   }
 };

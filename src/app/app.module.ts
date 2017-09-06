@@ -20,13 +20,15 @@ import 'rxjs/add/operator/distinct';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 import { AppComponent } from './app.component';
-import { HomeModule } from './home/home.module';
 import { appRoutes } from './app.routing';
 import { appReducer } from './shared/app.reducer';
 import { environment } from '../environments/environment';
-import { EmployeeModule } from './employee/employee.module';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseService } from './shared/firebase/firebase.service';
+
+import { HomeModule } from './home/home.module';
+import { ExpensesModule } from './expenses/expenses.module';
+import { EmployeeModule } from './employee/employee.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { FirebaseService } from './shared/firebase/firebase.service';
   ],
   imports: [
     MdIconModule,
+    BrowserModule,
     MdButtonModule,
     MdToolbarModule,
     BrowserAnimationsModule,
@@ -41,15 +44,16 @@ import { FirebaseService } from './shared/firebase/firebase.service';
     EffectsModule.forRoot([]),
     StoreModule.forRoot({app: appReducer}),
     StoreDevtoolsModule.instrument({}),
-    AngularFireModule.initializeApp(environment.firebase, 'expenses'),
+    AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(
       appRoutes, { enableTracing: false }
     ),
-    BrowserModule,
 
     HomeModule,
+    ExpensesModule,
     EmployeeModule,
   ],
+  exports: [ ],
   providers: [
     FirebaseService,
   ],
