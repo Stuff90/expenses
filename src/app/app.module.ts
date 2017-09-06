@@ -25,6 +25,7 @@ import { appRoutes } from './app.routing';
 import { appReducer } from './shared/app.reducer';
 import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FirebaseService } from './shared/firebase/firebase.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,11 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
     HomeModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    FirebaseService,
+  ],
+  bootstrap: [
+    AppComponent,
+  ]
 })
 export class AppModule { }
