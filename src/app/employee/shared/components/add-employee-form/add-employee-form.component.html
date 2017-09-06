@@ -14,7 +14,6 @@
       <input formControlName="emailAddress" mdInput placeholder="Email" required type="email">
     </md-form-field>
 
-    <button md-raised-button (click)="resetForm()">Reset</button>
     <button md-raised-button [disabled]="!(isFormValid | async)" type="submit">Submit</button>
   </form>
 </div>

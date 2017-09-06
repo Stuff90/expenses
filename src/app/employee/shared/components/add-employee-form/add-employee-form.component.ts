@@ -50,8 +50,4 @@ export class AddEmployeeFormComponent implements OnInit {
     this.addEmployeeForm.reset();
   }
 
-  resetForm(): void {
-    // this.store.dispatch({type: EMPLOYEE_FORM_RESET});
-  }
-
 }

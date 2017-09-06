@@ -3,7 +3,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MdInputModule, MdButtonModule, MdCardModule } from '@angular/material';
+import { MdInputModule, MdButtonModule, MdCardModule, MdIconModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { employeeRoutes } from './employee.routing';
@@ -19,6 +19,7 @@ import { EmployeeCardComponent } from './shared/components/employee-card/employe
     FormsModule,
     MdCardModule,
     MdInputModule,
+    MdIconModule,
     MdButtonModule,
     ReactiveFormsModule,
     EffectsModule.forFeature([EmployeeEffects]),
