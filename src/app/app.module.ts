@@ -24,6 +24,7 @@ import { HomeModule } from './home/home.module';
 import { appRoutes } from './app.routing';
 import { appReducer } from './shared/app.reducer';
 import { environment } from '../environments/environment';
+import { EmployeeModule } from './employee/employee.module';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseService } from './shared/firebase/firebase.service';
 
@@ -47,6 +48,7 @@ import { FirebaseService } from './shared/firebase/firebase.service';
     BrowserModule,
 
     HomeModule,
+    EmployeeModule,
   ],
   providers: [
     FirebaseService,

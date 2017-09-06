@@ -1,0 +1,20 @@
+<div class="addEmployeeForm">
+  <form [formGroup]="addEmployeeForm" novalidate (ngSubmit)="onSubmit()">
+    <div>
+      <md-form-field class="example-full-width">
+        <input formControlName="firstName" mdInput placeholder="First name" required type="text">
+      </md-form-field>
+
+      <md-form-field class="example-full-width">
+        <input formControlName="lastName" mdInput placeholder="Last name" required type="text">
+      </md-form-field>
+    </div>
+
+    <md-form-field class="example-full-width">
+      <input formControlName="emailAddress" mdInput placeholder="Email" required type="email">
+    </md-form-field>
+
+    <button md-raised-button (click)="resetForm()">Reset</button>
+    <button md-raised-button [disabled]="!(isFormValid | async)" type="submit">Submit</button>
+  </form>
+</div>

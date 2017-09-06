@@ -1,0 +1,9 @@
+<div class="employeesPage">
+  <app-add-employee-form></app-add-employee-form>
+
+  <app-employee-card
+    *ngFor="let employee of employees | async"
+    [employee]="employee"
+  ></app-employee-card>
+
+</div>
