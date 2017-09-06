@@ -1,0 +1,24 @@
+.expensesForm__label {
+  margin: 0;
+  padding: 10px 0 0 0;
+  font-weight: 100;
+}
+
+.expensesForm__fieldset {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > * {
+    flex: 0 0 48%;
+
+    &:last-child:first-child {
+      flex: 0 0 100%;
+    }
+
+  }
+}
+
+.mat-form-field {
+  width: 100%;
+}

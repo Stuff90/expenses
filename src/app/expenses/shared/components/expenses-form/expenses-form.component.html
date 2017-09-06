@@ -1,0 +1,113 @@
+<div class="expensesForm">
+  <form [formGroup]="expensesForm" novalidate (ngSubmit)="onSubmit()">
+    <div class="expensesForm__fieldset">
+      <md-form-field>
+        <input
+          [mdAutocomplete]="auto"
+          formControlName="employee"
+          required
+          mdInput placeholder="Employee"
+        >
+        <md-autocomplete
+          #auto="mdAutocomplete"
+          [displayWith]="getEmployeeFullName"
+        >
+          <md-option
+            *ngFor="let employee of filteredEmployees | async"
+            [value]="employee"
+          >
+            <span>{{ employee.firstName }} {{ employee.lastName }}</span>
+          </md-option>
+        </md-autocomplete>
+      </md-form-field>
+    </div>
+
+    <h4 class="expensesForm__label">Date and time of the event</h4>
+    <div class="expensesForm__fieldset" formGroupName="eventDatetime">
+      <md-form-field>
+        <input mdInput [mdDatepicker]="eventPicker" placeholder="Date" formControlName="date">
+        <md-datepicker-toggle mdSuffix [for]="eventPicker"></md-datepicker-toggle>
+        <md-datepicker #eventPicker></md-datepicker>
+      </md-form-field>
+
+      <div class="expensesForm__fieldset">
+        <md-form-field>
+          <input formControlName="timeHour" mdInput placeholder="Hour" required type="number" step="1" max="23" min="0">
+        </md-form-field>
+
+        <md-form-field>
+          <input formControlName="timeMinute" mdInput placeholder="Minute" required type="number" step="1" max="59" min="0">
+        </md-form-field>
+      </div>
+    </div>
+
+    <h4 class="expensesForm__label">Date and time of the expense</h4>
+    <div class="expensesForm__fieldset" formGroupName="expenseDatetime">
+      <md-form-field>
+        <input mdInput [mdDatepicker]="expensesPicker" placeholder="Date" formControlName="date">
+        <md-datepicker-toggle mdSuffix [for]="expensesPicker"></md-datepicker-toggle>
+        <md-datepicker #expensesPicker></md-datepicker>
+      </md-form-field>
+
+      <div class="expensesForm__fieldset">
+        <md-form-field>
+          <input formControlName="timeHour" mdInput placeholder="Hour" required type="number" step="1" max="23" min="0">
+        </md-form-field>
+
+        <md-form-field>
+          <input formControlName="timeMinute" mdInput placeholder="Minute" required type="number" step="1" max="59" min="0">
+        </md-form-field>
+      </div>
+    </div>
+
+
+    <div class="expensesForm__fieldset">
+      <md-form-field>
+        <textarea mdInput placeholder="Description" formControlName="description"></textarea>
+      </md-form-field>
+    </div>
+
+    <div class="expensesForm__fieldset">
+      <md-slide-toggle formControlName="approved">
+        Approved
+      </md-slide-toggle>
+      <md-form-field>
+        <input
+        [mdAutocomplete]="auto"
+        formControlName="reviewedBy"
+        required
+        mdInput placeholder="Reviewed by"
+        >
+        <md-autocomplete
+        #auto="mdAutocomplete"
+        [displayWith]="getEmployeeFullName"
+        >
+        <md-option
+        *ngFor="let employee of filteredEmployees | async"
+        [value]="employee"
+        >
+        <span>{{ employee.firstName }} {{ employee.lastName }}</span>
+      </md-option>
+    </md-autocomplete>
+  </md-form-field>
+</div>
+
+<md-form-field>
+  <input formControlName="amount" mdInput placeholder="Amount" required type="number" step="0.01">
+</md-form-field>
+
+
+<app-upload-input (files)="pouet($event)"></app-upload-input>
+<app-uploaded-images></app-uploaded-images>
+
+
+<div class="expensesForm__fieldset">
+
+</div>
+
+
+
+
+<button md-raised-button [disabled]="!(isFormValid | async)" type="submit">Submit</button>
+</form>
+</div>
