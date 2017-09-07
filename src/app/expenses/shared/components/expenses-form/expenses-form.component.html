@@ -60,7 +60,6 @@
       </div>
     </div>
 
-
     <div class="expensesForm__fieldset">
       <md-form-field>
         <textarea mdInput placeholder="Description" formControlName="description"></textarea>
@@ -98,7 +97,7 @@
 
 
 <app-upload-input (files)="onFileListUpdate($event)"></app-upload-input>
-<app-uploaded-images></app-uploaded-images>
+<app-uploaded-images default="{{expensesForm.value.receiptPhotoUrl}}"></app-uploaded-images>
 
 
 <div class="expensesForm__fieldset">

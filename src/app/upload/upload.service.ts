@@ -25,7 +25,7 @@ export class UploadService {
       .do(file => this.upload(file))
       .do((file: File) => this.store.dispatch({
         type: FILE_UPDATE,
-        payload: { file, name: file.name }
+        payload: { name: file.name }
       }))
       .subscribe()
   }
@@ -39,17 +39,13 @@ export class UploadService {
       (snapshot) => {},
       (error) => console.log(error),
       () => {
-        // console.log('done', uploadTask, uploadTask.snapshot.metadata.downloadURLs)
-        // // item.url = uploadTask.snapshot.downloadURL;
         this.store.dispatch({
           type: FILE_UPLOADED,
           payload: {
             name: file.name,
             src: uploadTask.snapshot.metadata.downloadURLs[0]
           }
-        })
-        // item.isUploading = false;
-        // this.saveImage({ name: item.file.name, url: item.url });
+        });
       }
     );
 

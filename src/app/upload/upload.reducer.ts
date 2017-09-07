@@ -3,7 +3,7 @@ import { Action } from '@ngrx/store';
 import { FileActions, FILE_UPDATE, FILE_UPLOADED, REMOVE_FILE } from './upload.actions';
 
 export interface FileStateItem {
-  file: File;
+  name: string;
   src: string;
   isReady?: boolean;
 }
@@ -24,12 +24,10 @@ export function fileReducer(state: FileState = {}, action: FileActions) {
       }, {});
 
     case FILE_UPLOADED:
+      console.log(action.payload);
       return Object.assign({}, state,
         {
-          [action.payload.name]: {
-            src: action.payload.src,
-            file: state[action.payload.name].file,
-          }
+          [action.payload.name]: action.payload
         }
       );
 
@@ -39,19 +37,15 @@ export function fileReducer(state: FileState = {}, action: FileActions) {
           {
             [action.payload.name]: {
               src: state[action.payload.name].src,
-              file: Object.assign(
-                {},
-                state[action.payload.name].file,
-                action.payload.file
-              )
+              name: action.payload.name || state[action.payload.name].name
             }
           }
         );
       } else {
         return Object.assign({}, state, {
           [action.payload.name]: {
-            file: action.payload.file,
-            src: '#',
+            name: action.payload.name,
+            src: action.payload.src || '#',
           }
         });
       }

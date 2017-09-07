@@ -1,0 +1,13 @@
+<div class="expensesList">
+  <md-card *ngFor="let expense of expenses | async" class="expensesList__item">
+    <md-card-header>
+      <md-card-title>Expense from: {{expense.employee.firstName}} {{expense.employee.lastName}} ({{getReadableTime(expense.eventDatetime)}})</md-card-title>
+      <md-card-subtitle>Reviewer: {{expense.reviewedBy.firstName}} {{expense.reviewedBy.lastName}}</md-card-subtitle>
+    </md-card-header>
+    <md-card-actions>
+      <button md-raised-button [routerLink]="'/expenses/details/' + expense.$key">Details</button>
+      <button md-raised-button>Edit</button>
+      <button md-raised-button color="warn">Delete</button>
+    </md-card-actions>
+  </md-card>
+</div>

@@ -1,8 +1,8 @@
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { REMOVE_FILE } from '../upload.actions';
+import { REMOVE_FILE, FILE_UPDATE } from '../upload.actions';
 
 @Component({
   selector: 'app-uploaded-images',
@@ -10,6 +10,8 @@ import { REMOVE_FILE } from '../upload.actions';
   styleUrls: ['./uploaded-images.component.scss']
 })
 export class UploadedImagesComponent implements OnInit {
+  @Input() default: any[];
+
   images: Observable<any>;
 
   constructor(
@@ -20,12 +22,22 @@ export class UploadedImagesComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.default) {
+      this.default.map(image => this.setDefaultImage(image));
+    }
+  }
+
+  private setDefaultImage(file: any) {
+    this.store.dispatch({
+      type: FILE_UPDATE,
+      payload: file
+    });
   }
 
   deleteImage(image: any) {
     this.store.select('file').dispatch({
       type: REMOVE_FILE,
-      payload: image.file.name,
+      payload: image.name,
     });
   }
 }

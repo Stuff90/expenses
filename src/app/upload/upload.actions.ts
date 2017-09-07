@@ -11,7 +11,7 @@ export class FileRemoveAction implements Action {
 
 export class FileUpdateAction implements Action {
   readonly type = FILE_UPDATE;
-  constructor(public payload: { file: File, name: string }) {}
+  constructor(public payload: { src?: string, name: string }) {}
 }
 
 export class FileUploadedAction implements Action {

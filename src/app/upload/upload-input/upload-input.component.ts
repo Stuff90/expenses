@@ -30,7 +30,7 @@ export class UploadInputComponent implements OnInit, OnDestroy {
       .map((files: FileState) =>
         Object.values(files).map(file => ({
           src: file.src,
-          name: file.file.name
+          name: file.name
         }))
       )
       .filter((files) => files.every(file => file.src !== '#'))

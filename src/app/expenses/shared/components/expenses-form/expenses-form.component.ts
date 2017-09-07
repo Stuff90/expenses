@@ -50,13 +50,6 @@ export class ExpensesFormComponent implements OnInit {
           })
         }
       })
-      // .do(e => {
-      //   if (this.expensesForm.valid) {
-      //     this.getFormDataFromStore(e)
-      //     .do(console.log)
-      //     .subscribe();
-      //   }
-      // })
       .switchMapTo(this.expensesForm.statusChanges)
       .map((status: string) => status === 'VALID')
       .distinctUntilChanged();
@@ -66,19 +59,22 @@ export class ExpensesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.expensesForm.controls.description.setValue('desc');
-    this.expensesForm.controls.expenseDatetime.setValue({ date: new Date(), timeHour: 1, timeMinute: 1});
-    this.expensesForm.controls.eventDatetime.setValue({ date: new Date(), timeHour: 1, timeMinute: 1});
-    this.expensesForm.controls.employee.setValue({
-      firstName: 'first',
-      lastName: 'last',
-      $key: 'fb694195-38a3-bf9d-74ce-e2e262fabccc'
-    });
-    this.expensesForm.controls.reviewedBy.setValue({
-      firstName: 'first',
-      lastName: 'last',
-      $key: 'fb694195-38a3-bf9d-74ce-e2e262fabccc'
-    });
+    // this.expensesForm.controls.receiptPhotoUrl.setValue([
+    //   {name: '47159-6621433-003_Steve_Scalone_Abstract.jpg', src: 'https://firebasestorage.googleapis.com/v0/b/expenses-fcd99.appspot.com/o/images%2F47159-6621433-003_Steve_Scalone_Abstract.jpg?alt=media&token=366b850b-56c4-429c-baa3-dd0d89f40790'},
+    // ]);
+    // this.expensesForm.controls.description.setValue('desc');
+    // this.expensesForm.controls.expenseDatetime.setValue({ date: new Date(), timeHour: 1, timeMinute: 1});
+    // this.expensesForm.controls.eventDatetime.setValue({ date: new Date(), timeHour: 1, timeMinute: 1});
+    // this.expensesForm.controls.employee.setValue({
+    //   firstName: 'first',
+    //   lastName: 'last',
+    //   $key: 'fb694195-38a3-bf9d-74ce-e2e262fabccc'
+    // });
+    // this.expensesForm.controls.reviewedBy.setValue({
+    //   firstName: 'first',
+    //   lastName: 'last',
+    //   $key: 'fb694195-38a3-bf9d-74ce-e2e262fabccc'
+    // });
 
   }
 

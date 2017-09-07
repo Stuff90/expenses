@@ -12,6 +12,7 @@ import { employeeReducer } from './shared/employee.reducers';
 import { EmployeesComponent } from './pages/employees/employees.component';
 import { AddEmployeeFormComponent } from './shared/components/add-employee-form/add-employee-form.component';
 import { EmployeeCardComponent } from './shared/components/employee-card/employee-card.component';
+import { EmployeesEditionComponent } from './pages/employees-edition/employees-edition.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { EmployeeCardComponent } from './shared/components/employee-card/employe
   declarations: [
     EmployeesComponent,
     AddEmployeeFormComponent,
-    EmployeeCardComponent
+    EmployeeCardComponent,
+    EmployeesEditionComponent
   ]
 })
 export class EmployeeModule { }
