@@ -8,9 +8,9 @@ NPM 3.10 or greater
 git clone https://github.com/Stuff90/github-search.git
 cd github-search
 npm install
-npm run demo
+npm run start
 ```
-Open `http://localhost:3000/` in your favorite browser.
+Open `http://localhost:4200/` in your favorite browser.
 
 ## Tech environment
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
