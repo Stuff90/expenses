@@ -11,7 +11,11 @@ export class FirebaseService {
   ) {}
 
   getEmployees(queryParams: any = {}): any {
-    return this.getCollection('/employee', queryParams);
+    return this.getCollection('/employees', queryParams);
+  }
+
+  getObject(path: string): any {
+    return this.db.object(path);
   }
 
   getCollection(path: string, queryParams: any = {}): any {

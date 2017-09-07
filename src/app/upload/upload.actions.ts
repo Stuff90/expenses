@@ -3,7 +3,7 @@ import { Action } from '@ngrx/store';
 export const FILE_UPDATE = '[File] File updated';
 export const FILE_UPLOADED = '[File] File uploaded';
 
-export class FileUpadateAction implements Action {
+export class FileUpdateAction implements Action {
   readonly type = FILE_UPDATE;
   constructor(public payload: { file: File, name: string }) {}
 }
@@ -16,4 +16,4 @@ export class FileUploadedAction implements Action {
   }) {}
 }
 
-export type FileActions = FileUpadateAction | FileUploadedAction;
+export type FileActions = FileUpdateAction | FileUploadedAction;

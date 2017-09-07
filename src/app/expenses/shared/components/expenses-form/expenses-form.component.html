@@ -97,7 +97,7 @@
 </md-form-field>
 
 
-<app-upload-input (files)="pouet($event)"></app-upload-input>
+<app-upload-input (files)="onFileListUpdate($event)"></app-upload-input>
 <app-uploaded-images></app-uploaded-images>
 
 
@@ -108,6 +108,6 @@
 
 
 
-<button md-raised-button [disabled]="!(isFormValid | async)" type="submit">Submit</button>
+<button md-raised-button color="primary" [disabled]="!(isFormValid | async)" type="submit">Submit</button>
 </form>
 </div>
