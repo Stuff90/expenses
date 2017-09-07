@@ -186,7 +186,7 @@ export class ExpensesFormComponent implements OnInit {
     this.expensesForm.reset();
   }
 
-  onFileListUpdate(fileSrc: string[]){
+  onFileListUpdate(fileSrc: any[]){
     this.expensesForm.controls.receiptPhotoUrl.setValue(fileSrc);
   }
 

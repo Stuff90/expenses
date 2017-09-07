@@ -8,9 +8,8 @@
       <md-spinner *ngIf="!image.isReady"></md-spinner>
     </md-card-content>
     <md-card-title class="uploadedImages__cardTitle">{{image.file.name}}</md-card-title>
-    <!-- <md-card-actions>
-      <button md-button>LIKE</button>
-      <button md-button>SHARE</button>
-    </md-card-actions> -->
+    <md-card-actions>
+      <button md-raised-button color="warn" (click)="deleteImage(image)">Remove</button>
+    </md-card-actions>
   </md-card>
 </div>

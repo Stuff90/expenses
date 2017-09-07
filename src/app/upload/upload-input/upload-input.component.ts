@@ -3,6 +3,7 @@ import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/cor
 
 import { Store } from '@ngrx/store';
 import { UploadService } from '../upload.service';
+import { FileState, FileStateItem } from '../upload.reducer';
 import { FirebaseService } from '../../shared/firebase/firebase.service';
 
 @Component({
@@ -25,11 +26,16 @@ export class UploadInputComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.store.select('file')
-    .map(files => Object.values(files).map(file => file.src))
-    .filter(fileSrc => fileSrc.indexOf('#') < 0)
-    .do(files => this.files.next(files))
-    .subscribe();
+    this.filesSubscription = this.store.select('file')
+      .map((files: FileState) =>
+        Object.values(files).map(file => ({
+          src: file.src,
+          name: file.file.name
+        }))
+      )
+      .filter((files) => files.every(file => file.src !== '#'))
+      .do(files => this.files.next(files))
+      .subscribe();
   }
 
   ngOnDestroy() {

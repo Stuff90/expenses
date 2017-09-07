@@ -12,7 +12,6 @@ export class FileEffects {
 
   @Effect({ dispatch: false }) onFileAdded: Observable<any> = this.actions
     .ofType(FILE_UPDATE)
-    .do(console.log)
 
   constructor(
     private actions: Actions,

@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px 0;
+  box-sizing: border-box;
 }
 
 .uploadedImages__cardContent {
@@ -10,7 +11,15 @@
   justify-content: center;
 }
 
+.uploadedImages__cardTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .uploadedImages__imageCard {
-  flex: 0 1 43%;
-  margin-bottom: 10px;
+  box-sizing: border-box;
+  max-width: calc(50% - 10px);
+  margin-bottom: 20px;
+
 }

@@ -1,16 +1,28 @@
 import { Action } from '@ngrx/store';
 
-import { FileActions, FILE_UPDATE, FILE_UPLOADED } from './upload.actions';
+import { FileActions, FILE_UPDATE, FILE_UPLOADED, REMOVE_FILE } from './upload.actions';
 
-interface FileState {
-  [id: string]: {
-    file: File;
-    src: string;
-  }
+export interface FileStateItem {
+  file: File;
+  src: string;
+  isReady?: boolean;
+}
+
+export interface FileState {
+  [id: string]: FileStateItem;
 }
 
 export function fileReducer(state: FileState = {}, action: FileActions) {
 	switch (action.type) {
+    case REMOVE_FILE:
+      return Object.keys(state).reduce((res, fileName) => {
+        if (fileName !== action.payload) {
+          res[fileName] = state[fileName];
+        }
+
+        return res;
+      }, {});
+
     case FILE_UPLOADED:
       return Object.assign({}, state,
         {
